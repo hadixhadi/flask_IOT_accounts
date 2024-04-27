@@ -1,0 +1,25 @@
+services:
+  mysql:
+    image: public.ecr.aws/docker/library/mysql
+    container_name: flask_mysql
+    ports:
+      - "3306:3306"
+    environment:
+      - "MYSQL_ROOT_PASSWORD=1q2w3e4r5t"
+      - "MYSQL_DATABASE=accountsDB"
+    networks:
+      - main
+  flask:
+    build: .
+    command: /bin/bash -c " cd src/  && python run.py && python migrations.py "
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/src
+    depends_on:
+      - mysql
+    networks:
+      - main
+
+networks:
+  main:
