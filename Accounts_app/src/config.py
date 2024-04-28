@@ -12,11 +12,13 @@ class BaseConfig:
         "password": "1q2w3e4r5t",
         "database": "accountsDB"
     }
-
-
-
-class DevConfig(BaseConfig):
     DEBUG=True
+
+    # JWT settings:
+    JWT_SECRET_KEY="445bf65b4373867424d3b6c175e617ec45a46dfee67c6048f202ccfdf61ed300"
+    JWT_COOKIE_SECURE=False
+
+
 
 class ProductConfig(BaseConfig):
     pass

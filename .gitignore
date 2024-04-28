@@ -1,1 +1,3 @@
 Accounts_app/.venv
+Accounts_app/redis-data/dump.rdb
+
